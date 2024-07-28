@@ -1,0 +1,16 @@
+{% extends 'core/index.html' %}
+
+{% block content%}
+
+<form method="POST" class="form-group">
+    {%csrf_token%}
+    Email:
+    <input type="email" name="email" class="form-control">
+    Password:
+    <input type="password" name="password" class="form-control">
+    
+<button type="submit" class="my-3 btn btn-success btn-lg">
+    Zaloguj się</button>
+</form>
+
+{% endblock %}

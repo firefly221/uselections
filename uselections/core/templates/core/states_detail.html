@@ -1,0 +1,40 @@
+{% extends 'core/index.html' %}
+{% load static %}
+
+{% block title %}
+    {{state.name}}
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-3 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <p style="font-size:30px;">Historia wyników</p>
+                <p class="text text-muted">Niebieski - demokraci</p>
+                <p class="text text-muted">Czerwony - republikanie</p>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    {% for item in state_data %}
+                        <li class="text text-{{item.color}}" style="font-size:25px;">
+                            Rok: {{item.year}}
+                        </li>
+
+                    {% endfor %}
+                   
+                </ul>
+                <hr>
+                
+                    
+            </div>
+        </div>
+        <div class="col py-3">
+            <h1 style="font-style:italic">{{state.name}}</h1>
+            <img src="{% static 'core/graphs/'%}{{state.name}}.png">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

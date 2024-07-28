@@ -1,0 +1,50 @@
+{% extends 'core/index.html' %}
+
+{% block title %}
+    Sondaże
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
+      
+      
+      <p class="col-lg-8 mx-auto fs-5 text-muted">
+        W tym miejscu w oparciu o najnowsze dane jest możliwośc generowania sondaży. Dane pochodzą z różnych źródeł, różnią się także ilością pytanych osób.
+      </p>
+      <div class="d-inline-flex gap-2 mb-5">
+        
+        <form method="POST">
+            {% csrf_token %}
+        <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="submit">
+          Wygeneruj nowy sondaż
+        </button>
+         </form>
+      </div>
+    </div>
+  </div>
+
+  {% for poll in polls %}
+  <div class="container my-5">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
+      <h3 class="text-muted">Autor: {{poll.author}}</h3>
+      <h3 class="text-muted">Kluczowy stan: {{poll.key_state}}</h3>
+      <p class="text-danger" style="font-size:25px;">Trump: {{poll.percent_rep}} %</p>
+      <p class="text-info" style="font-size:25px;">Harris: {{poll.percent_dem}} %</p>
+      <p class="text-warning" style="font-size:25px;">Kennedy: {{poll.percent_ind}} %</p>
+    </div>
+  </div>
+{% endfor %}
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+{% extends 'core/index.html'%}
+
+{% load static %}
+
+{% block title %}
+    Kandydaci
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container my-5">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0"/>
+          </svg>
+      <h1 class="text-body-emphasis display-5">Kandydaci na prezydenta</h1>
+      <p class="col-lg-8 mx-auto fs-5 text-muted">
+Poniżej znajduje się lista obecnych kandydatów na prezydenta USA w wyborach w 2024 roku. Jeżeli jesteś zarejestrowany/na, i jeszcze tego nie zrobiłeś/aś możesz oddać swój głos.</p>
+      <div class="d-inline-flex gap-2 mb-5">
+        {% if logged_in %}
+        <p class="col-lg-8 mx-auto fs-5 text-warning">
+        Nie masz jeszcze ważnego ID połączonego z kontem możesz je wysłać za pomocą <a href="" class="text text-decoration-none"> tego linku</a></p>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      
+      
+      {% for candidate in candidates %}
+      
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'core/' %}{{candidate.name}}.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{candidate.name}}</h5>
+            <h5 class="card-text text text-{% if candidate.party == 'Republican' %}danger
+            {% elif candidate.party == 'Democrat' %}primary
+            {% else %}warning
+            {% endif %}">Party: {{candidate.party}}</h5>
+            <p class="card-text">Głosów: {{candidate.votes}}</p>
+            {% if logged_in and voted == False %}
+              <a href="{% url 'votefor' candidate.id %}">
+                <button class="btn btn-success">Zagłosuj</button>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+    </div>
+  
+
+
+
+{% endblock %}
+

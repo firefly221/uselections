@@ -1,0 +1,16 @@
+{% extends 'core/index.html' %}
+
+
+
+{% block content %}
+    
+    <form method="POST" class="form-group">
+    {%csrf_token%}
+    {{form}}
+    
+    
+    <button type="submit" class="my-3 btn btn-success btn-lg">
+        Zarejestruj się</button>
+    </form>
+{% endblock %} 
+
