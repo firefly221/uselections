@@ -1,12 +1,13 @@
 # uselections
 # Funkcje:
-# Logowanie i rejestracja
+
+### Logowanie i rejestracja
 
 
-# Sesje
+### Sesje
 
 ### System głosowania i obliczania głosów poszczególnych kandydatów
-![](https://pandao.github.io/editor.md/examples/images/4.jpg)
+![](https://github.com/firefly221/uselections/blob/main/Poll.png)
 ### Robienie losowych sondaży 
 
 ### Lista stanów, którą można sortować
