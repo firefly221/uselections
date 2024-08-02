@@ -1,10 +1,8 @@
 # uselections
 # Funkcje:
 
-### Logowanie i rejestracja
-![](https://github.com/firefly221/uselections/blob/main/Login.png)
-### Sesje
-
+### Logowanie i rejestracja oraz sesje
+![](https://github.com/firefly221/uselections/blob/main/login.png)
 ### System głosowania i obliczania głosów poszczególnych kandydatów
 ![](https://github.com/firefly221/uselections/blob/main/Index.png)
 ### Robienie losowych sondaży 
